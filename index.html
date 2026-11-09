@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Byteblisk">
 <meta property="og:title" content="Byteblisk: app reviews, website to Markdown and Google rank APIs">
-<meta property="og:description" content="Pay-per-use data tools on Apify. Real runs: 200 Spotify reviews from both stores for $0.024; 50 docs pages to Markdown for $0.075; a top-100 Google rank check for $0.03.">
+<meta property="og:description" content="Pay-per-use data tools on Apify. Real runs: 200 Spotify reviews from both stores for $0.024; 50 docs pages to Markdown for $0.075; a top-100 Google rank check for $0.005 plus about $0.025 for Google's scraper.">
 <meta property="og:url" content="https://byteblisk.github.io/">
 <meta property="og:image" content="https://byteblisk.github.io/img/result-app-reviews.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -19,7 +19,7 @@
 {"@type":"Organization","@id":"https://byteblisk.github.io/#org","name":"Byteblisk","url":"https://byteblisk.github.io/","logo":"https://byteblisk.github.io/img/byteblisk.png","sameAs":["https://apify.com/byteblisk","https://github.com/ByteBlisk"]},
 {"@type":"SoftwareApplication","name":"App Store & Google Play Reviews Scraper API","applicationCategory":"DeveloperApplication","operatingSystem":"Web","url":"https://apify.com/byteblisk/app-reviews-insights","publisher":{"@id":"https://byteblisk.github.io/#org"},"offers":{"@type":"Offer","price":"0.10","priceCurrency":"USD","description":"per 1,000 reviews"}},
 {"@type":"SoftwareApplication","name":"Web Scraper & Crawler for RAG (Markdown)","applicationCategory":"DeveloperApplication","operatingSystem":"Web","url":"https://apify.com/byteblisk/sitereader","publisher":{"@id":"https://byteblisk.github.io/#org"},"offers":{"@type":"Offer","price":"1.50","priceCurrency":"USD","description":"per 1,000 pages"}},
-{"@type":"SoftwareApplication","name":"Google Play Scraper & SERP Rank Checker","applicationCategory":"DeveloperApplication","operatingSystem":"Web","url":"https://apify.com/byteblisk/google-play-search-toolkit","publisher":{"@id":"https://byteblisk.github.io/#org"},"offers":{"@type":"Offer","price":"0.03","priceCurrency":"USD","description":"per keyword rank check"}}
+{"@type":"SoftwareApplication","name":"Google Play Scraper & SERP Rank Checker","applicationCategory":"DeveloperApplication","operatingSystem":"Web","url":"https://apify.com/byteblisk/google-play-search-toolkit","publisher":{"@id":"https://byteblisk.github.io/#org"},"offers":{"@type":"Offer","price":"0.005","priceCurrency":"USD","description":"per keyword rank check, plus Apify Google Search Scraper usage"}}
 ]}
 </script>
 <style>
@@ -113,8 +113,8 @@ footer{margin:60px 0 30px;padding-top:20px;border-top:1px solid var(--line);colo
 <li>Google Play app details, reviews and keyword search</li>
 <li>Every position of your domain in Google's top 100 for a keyword, with titles and URLs</li>
 </ul>
-<p class="real">Real run: apify.com for "web scraping api" on Google US: 79 results checked, best rank #5, also #19 and #75. Cost: $0.03.</p>
-<p class="price">$0.03 per keyword rank check; $0.002 per app record</p>
+<p class="real">Real run: apify.com for "web scraping api" on Google US: 79 results checked, best rank #5, also #19 and #75. Cost: $0.005 for the rank check, plus about $0.025 for Apify's Google Search Scraper, which reads the results pages.</p>
+<p class="price">$0.005 per keyword rank check (+ about $0.025 Google scraper usage); $0.002 per app record</p>
 <div class="btns"><a class="btn p" href="https://apify.com/byteblisk/google-play-search-toolkit">Try it on Apify</a><a class="btn s" href="https://apify.com/byteblisk/google-play-search-toolkit/api">API</a></div>
 </div>
 <img class="shot" src="img/result-google-rank.jpg" alt="Google top results for web scraping api with apify.com highlighted at rank 5" loading="lazy" width="992" height="936">
@@ -128,7 +128,7 @@ footer{margin:60px 0 30px;padding-top:20px;border-top:1px solid var(--line);colo
 </div>
 
 <h2 id="faq">FAQ</h2>
-<details><summary>How much does a typical run cost?</summary><p>You pay per result. The real runs above cost $0.024 (200 reviews), $0.075 (50 pages) and $0.03 (one rank check). Apify gives new accounts free monthly credit to try them.</p></details>
+<details><summary>How much does a typical run cost?</summary><p>You pay per result. The real runs above cost $0.024 (200 reviews), $0.075 (50 pages) and $0.005 plus about $0.025 of Google scraper usage (one rank check). Apify gives new accounts free monthly credit to try them.</p></details>
 <details><summary>Why use the website endpoint for App Store reviews?</summary><p>Apple's customer-reviews RSS feed now comes back empty for most apps. The App Store website reads reviews from its own endpoint, 20 per page, newest first, and that is what the reviews tool uses, with paced requests.</p></details>
 <details><summary>What happens if a page or app fails?</summary><p>Failed items are not charged, and the results say why reading stopped.</p></details>
 <details><summary>Where is the source and the MCP listing?</summary><p>The MCP server listings are on GitHub: <a href="https://github.com/ByteBlisk/mcp-servers">ByteBlisk/mcp-servers</a>.</p></details>
