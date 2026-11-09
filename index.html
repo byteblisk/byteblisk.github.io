@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>byteblisk: app store reviews, website to Markdown and Google rank APIs</title>
+<meta name="description" content="byteblisk builds pay-per-use data tools on Apify: Google Play and App Store reviews in one format, any website to clean Markdown for AI and RAG, and a Google Play scraper with a top-100 Google rank checker. API and MCP.">
+<link rel="canonical" href="https://byteblisk.github.io/">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="byteblisk">
+<meta property="og:title" content="byteblisk: app reviews, website to Markdown and Google rank APIs">
+<meta property="og:description" content="Pay-per-use data tools on Apify. Real runs: 200 Spotify reviews from both stores for $0.024; 50 docs pages to Markdown for $0.075; a top-100 Google rank check for $0.03.">
+<meta property="og:url" content="https://byteblisk.github.io/">
+<meta property="og:image" content="https://byteblisk.github.io/img/result-app-reviews.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://byteblisk.github.io/#org","name":"byteblisk","url":"https://byteblisk.github.io/","logo":"https://byteblisk.github.io/img/byteblisk.png","sameAs":["https://apify.com/byteblisk","https://github.com/ByteBlisk"]},
+{"@type":"SoftwareApplication","name":"App Store & Google Play Reviews Scraper API","applicationCategory":"DeveloperApplication","operatingSystem":"Web","url":"https://apify.com/byteblisk/app-reviews-insights","publisher":{"@id":"https://byteblisk.github.io/#org"},"offers":{"@type":"Offer","price":"0.10","priceCurrency":"USD","description":"per 1,000 reviews"}},
+{"@type":"SoftwareApplication","name":"Web Scraper & Crawler for RAG (Markdown)","applicationCategory":"DeveloperApplication","operatingSystem":"Web","url":"https://apify.com/byteblisk/sitereader","publisher":{"@id":"https://byteblisk.github.io/#org"},"offers":{"@type":"Offer","price":"1.50","priceCurrency":"USD","description":"per 1,000 pages"}},
+{"@type":"SoftwareApplication","name":"Google Play Scraper & SERP Rank Checker","applicationCategory":"DeveloperApplication","operatingSystem":"Web","url":"https://apify.com/byteblisk/google-play-search-toolkit","publisher":{"@id":"https://byteblisk.github.io/#org"},"offers":{"@type":"Offer","price":"0.03","priceCurrency":"USD","description":"per keyword rank check"}}
+]}
+</script>
+<style>
+:root{--bg:#ffffff;--fg:#0f1419;--muted:#55606e;--card:#f5f7fa;--line:#e3e8ef;--accent:#1a73e8;--ok:#0b8043}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0c11;--fg:#eef1f6;--muted:#9aa6b8;--card:#11151d;--line:#232a37;--accent:#7cc4ff;--ok:#49d18d}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.55 -apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;gap:12px;padding:22px 0}
+header img{width:40px;height:40px;border-radius:10px}
+header b{font-size:22px}
+header nav{margin-left:auto;display:flex;gap:18px;font-size:15px}
+header nav a{color:var(--muted);text-decoration:none}
+.hero{padding:40px 0 30px}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0 0 16px}
+.lead{font-size:20px;color:var(--muted);max-width:720px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--muted)}
+h2{font-size:28px;letter-spacing:-.01em;margin:56px 0 18px}
+.tool{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin-bottom:22px}
+.tool img.shot{width:100%;border-radius:12px;border:1px solid var(--line)}
+.tool .t{display:flex;align-items:center;gap:12px}
+.tool .t img{width:48px;height:48px;border-radius:12px}
+.tool h3{margin:0;font-size:22px}
+.tool ul{padding-left:20px;margin:14px 0}
+.price{font-weight:650}
+.real{border-left:3px solid var(--ok);padding:6px 12px;margin:14px 0;color:var(--fg);background:transparent}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{display:inline-block;padding:9px 16px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px}
+.btn.p{background:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.p{color:#0a0c11}}
+.btn.s{border:1px solid var(--line);color:var(--fg)}
+code{font:14px "SF Mono",Menlo,monospace;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:2px 6px;word-break:break-all}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.box h4{margin:0 0 6px;font-size:17px}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font-weight:600}
+footer{margin:60px 0 30px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;gap:16px}
+@media (max-width:760px){.tool,.grid3{grid-template-columns:1fr}header nav{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><img src="img/byteblisk.png" alt="byteblisk logo"><b>byteblisk</b>
+<nav><a href="#tools">Tools</a><a href="#mcp">API and MCP</a><a href="#faq">FAQ</a><a href="https://apify.com/byteblisk">Apify profile</a></nav></header>
+
+<section class="hero">
+<h1>Clean data from app stores, websites and Google. Pay per result.</h1>
+<p class="lead">byteblisk builds data tools on Apify: Google Play and App Store reviews in one format, any website as clean Markdown for AI, and Google Play data with a top-100 Google rank check. No subscription; failed items are not charged.</p>
+<div class="chips"><span class="chip">REST API</span><span class="chip">MCP server for Claude and Cursor</span><span class="chip">CSV, JSON, Excel export</span><span class="chip">Schedules and webhooks on Apify</span></div>
+</section>
+
+<h2 id="tools">The tools, with real runs</h2>
+
+<div class="tool">
+<div>
+<div class="t"><img src="img/app-reviews.png" alt=""><h3>App Store &amp; Google Play Reviews Scraper API</h3></div>
+<ul>
+<li>Reviews from Google Play and the App Store in one table: rating, title, text, app version (Google Play), developer reply, date, country</li>
+<li>Reads the App Store the way its website does, so it still works now that Apple's review RSS feed is empty for most apps</li>
+<li>Monitor mode for new reviews only; compare apps side by side</li>
+</ul>
+<p class="real">Real run (8 Nov 2026): 200 Spotify reviews from both stores in 32 seconds. Cost: $0.024. Ads came up in 24 of them.</p>
+<p class="price">$0.10 per 1,000 reviews + $0.002 per app</p>
+<div class="btns"><a class="btn p" href="https://apify.com/byteblisk/app-reviews-insights">Try it on Apify</a><a class="btn s" href="https://apify.com/byteblisk/app-reviews-insights/api">API</a></div>
+</div>
+<img class="shot" src="img/result-app-reviews.jpg" alt="Table of Spotify reviews from Google Play and the App Store, 200 rows, cost $0.024" loading="lazy" width="1080" height="1350">
+</div>
+
+<div class="tool">
+<div>
+<div class="t"><img src="img/sitereader.png" alt=""><h3>Web Scraper &amp; Crawler for RAG (Markdown)</h3></div>
+<ul>
+<li>One page, a whole site, a site map or RSS feeds, as clean Markdown or JSON</li>
+<li>Main content only: menus, cookie banners and scripts removed; headings and links kept</li>
+<li>Empty and failed pages are not charged</li>
+</ul>
+<p class="real">Real run (8 Nov 2026): docs.apify.com, 50 pages, 307k characters of Markdown in 2 min 22 s. Cost: $0.075.</p>
+<p class="price">$1.50 per 1,000 pages ($4 per 1,000 for pages that need a browser)</p>
+<div class="btns"><a class="btn p" href="https://apify.com/byteblisk/sitereader">Try it on Apify</a><a class="btn s" href="https://apify.com/byteblisk/sitereader/api">API</a></div>
+</div>
+<img class="shot" src="img/result-docs-markdown.jpg" alt="docs.apify.com crawled into clean Markdown, 50 pages, cost $0.075" loading="lazy" width="1080" height="1350">
+</div>
+
+<div class="tool">
+<div>
+<div class="t"><img src="img/toolkit.png" alt=""><h3>Google Play Scraper &amp; SERP Rank Checker</h3></div>
+<ul>
+<li>Google Play app details, reviews and keyword search</li>
+<li>Every position of your domain in Google's top 100 for a keyword, with titles and URLs</li>
+</ul>
+<p class="real">Real run (8 Nov 2026): apify.com for "web scraping api" on Google US: 79 results checked, best rank #5, also #19 and #75. Cost: $0.03.</p>
+<p class="price">$0.03 per keyword rank check; $0.002 per app record</p>
+<div class="btns"><a class="btn p" href="https://apify.com/byteblisk/google-play-search-toolkit">Try it on Apify</a><a class="btn s" href="https://apify.com/byteblisk/google-play-search-toolkit/api">API</a></div>
+</div>
+<img class="shot" src="img/result-google-rank.jpg" alt="Google top results for web scraping api with apify.com highlighted at rank 5" loading="lazy" width="1080" height="1350">
+</div>
+
+<h2 id="mcp">Use them from code or from your AI assistant</h2>
+<div class="grid3">
+<div class="box"><h4>API</h4>Run any tool by HTTP and get the dataset as JSON, CSV or Excel. Each Store page has ready snippets for Python, JavaScript and cURL.</div>
+<div class="box"><h4>MCP</h4>Each tool is also a remote MCP server (Streamable HTTP, header <code>Authorization: Bearer &lt;Apify token&gt;</code>):<br><code>https://byteblisk--app-reviews-insights.apify.actor/mcp</code><br><code>https://byteblisk--sitereader.apify.actor/mcp</code><br><code>https://byteblisk--google-play-search-toolkit.apify.actor/mcp</code></div>
+<div class="box"><h4>Schedules</h4>Run daily or weekly on Apify and send results to Google Sheets, Slack, webhooks or your own database.</div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+<details><summary>How much does a typical run cost?</summary><p>You pay per result. The real runs above cost $0.024 (200 reviews), $0.075 (50 pages) and $0.03 (one rank check). Apify gives new accounts free monthly credit to try them.</p></details>
+<details><summary>Why use the website endpoint for App Store reviews?</summary><p>Apple's customer-reviews RSS feed comes back empty for most apps in 2026. The App Store website reads reviews from its own endpoint, 20 per page, newest first, and that is what the reviews tool uses, with paced requests.</p></details>
+<details><summary>What happens if a page or app fails?</summary><p>Failed items are not charged, and the results say why reading stopped.</p></details>
+<details><summary>Where is the source and the MCP listing?</summary><p>The MCP server listings are on GitHub: <a href="https://github.com/ByteBlisk/mcp-servers">ByteBlisk/mcp-servers</a>.</p></details>
+
+<footer><span>© 2026 byteblisk</span><a href="https://apify.com/byteblisk">Apify</a><a href="https://github.com/ByteBlisk">GitHub</a></footer>
+</div>
+</body>
+</html>
